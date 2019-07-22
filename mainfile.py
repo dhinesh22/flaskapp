@@ -142,8 +142,3 @@ def stopping():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# client.delete_tags(Resources=[ami-06e441c14766d8bb7],Tags=[{"Key": my-t3-nano-instance}])
-# aws ec2 delete-tags --resources i-0f1f9ff06ba6e6047 --tags Key=Name,Value=a4-t3-nano-instance
-# aws ec2 cancel-spot-instance-requests --spot-instance-request-ids sir-zxer7dxh
-# aws ec2 terminate-instances --instance-ids i-0befd484fcad66f70 i-0028585c98141ab38 i-06f9c5565fe94278f
