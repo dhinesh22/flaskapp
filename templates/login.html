@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<center>
+<h1>AWS EC2 SPOT INSTANCE CREATION</h1>
+<h4>ENTER THE DETAILS:</h4>
+<form method="post" action="/flaskapplication">
+    <input type="number" name="instancecount" placeholder="InstanceCount">
+    <br><br>
+    <input type="text" name="imageid" placeholder="ImageId">
+    <br><br>
+    <input type="text" name="instancetype" placeholder="InstanceType">
+    <br><br>
+    <input type="text" name="keyname" placeholder="KeyName">
+    <br><br>
+    <input type="text" name="securitygroup" placeholder="SecurityGroups">
+    <br><br>
+    <input type="text" name="spotprice" placeholder="SpotPrice">
+    <br><br>
+    <h2>TAGGING</h2>
+    <input type="text" name="tvalue" placeholder="Value">
+    <br><br>
+    <input type="submit" value="Submit" name="ok">
+</form>
+</center>
+</body>
+</html>

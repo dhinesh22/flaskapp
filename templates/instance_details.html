@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<center><h2>INSTANCE DETAILS:</h2>
+  <table>
+  <tr>
+    <th>INSTANCE NAME</th>
+    <th>PUBLIC DNS INFO</th>
+    <th>DATE AND TIME</th>
+    <th>BIT PRICE</th>
+    <th>INSTANCE ID</th>
+    <th>ENTER INSTANCE ID</th>
+    <th>STATUS</th>
+  </tr>
+  </table>
+  {% for row in values %}
+<form method="post" action="/terminated" enctype="multipart/form-data">
+  <table>
+  <tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+    <td>{{ row[3] }}</td>
+    <td>{{ row[4] }}</td>
+    <td><input type="text" name="instanceid" placeholder="Enter instanceid"></td>
+    <td>
+      <input type="submit" name="submit" value="TERMINATE">
+      <input type="submit" name="submit" value="START">
+      <input type="submit" name="submit" value="STOP">
+    </td>
+  </tr>
+  </table>
+</form>
+  {% endfor %}
+</center>
+</body>
+</html>
