@@ -113,29 +113,7 @@ def instdetails():
                 mycsv = list(mycsv)
                 return render_template('instance_details.html', values=mycsv)
 
-        '''client = boto3.client('ec2')
-        #tvalues = []
-        tvalue = request.form['tvalue']
-        bitprice = request.form['bitprice']
-        #client = boto3.client('ec2')
-        #tvalues.append(tvalue)
-        #current_req = client.describe_tags()
-        #tvalue = current_req['Tags'][0]['Key']
-        #tvalue = tvalues
-        req1 = client.describe_instances()
-        n = len(req1['Reservations'])
-        for i in (0, n):
-            req1 = client.describe_spot_instance_requests()
-            #val = req1['Reservations'][i]['Instances'][0]['State'][0]
-            if req1['SpotInstanceRequests'][i]['State'] == 'active':
-                print('running')
-                req = client.describe_instances(InstanceIds=['string'])
-                ltime = req['Reservations'][i]['Instances'][0]['LaunchTime']
-                publicdns = req['Reservations'][i]['Instances'][0]['PublicDnsName']
-                #req2 = client.describe_spot_instance_requests()
-                #bitprice = req2['SpotInstanceRequests'][0]['SpotPrice']'''
-
-
+   
 @app.route('/terminated', methods=['POST'])
 def stopping():
     if request.method == 'POST':
@@ -143,17 +121,6 @@ def stopping():
         print(instanceid)
         if request.form['submit'] == 'TERMINATE':
             client = boto3.client('ec2')
-            # current_req = client.describe_spot_instance_requests(
-            #     Filters=[
-            #         {
-            #             'Name': 'instance-id',
-            #             'Values': [
-            #                 instanceid,
-            #             ]
-            #         },
-            #     ],
-            # )
-            # if current_req['SpotInstanceRequests'][0]['State'] == 'active':
             term = client.terminate_instances(
                 InstanceIds=[
                     instanceid,
@@ -169,8 +136,6 @@ def stopping():
                 ]
             )
             return render_template('terminated.html')
-        # elif current_req['SpotInstanceRequests'][0]['State'] == 'closed':
-        #     return render_template('terminated.html')
         else:
             pass
 
